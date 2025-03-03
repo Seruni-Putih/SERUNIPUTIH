@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seruni Putih menghadirkan jamu alami berkualitas untuk kesehatan Anda.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Seruni Putih</title>
+    <style>
+        
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0;  background-color: rgb(255, 255, 255); width: 100%;
+    height: 100%;
+    background-image: url(''); /* Ganti dengan gambar yang kamu inginkan */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;}
+        html { scroll-behavior: smooth; }
+        header { background: #f4a261; padding: 20px; text-align: center; color: white; font-size: 24px; font-weight: bold;  margin: auto;}
+        .navbar {
+            text-align: center; padding: 10px; background: #2a9d90; position: sticky; top: 0; z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     
+    margin: auto;
+    padding: 10px 20px;
+    
+}
+        
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; transition: color 0.3s;position: relative; }
+        nav a:hover { color: #e9c46a; }
+        nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    
+}
+nav a.active {
+    color: #f4a261; /* Warna berubah saat menu aktif */
+}
+        section {    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; opacity: 0; transform: translateY(50px); transition: opacity 1s ease-out, transform 1s ease-out; }
+        section:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}
+        .show { opacity: 1; transform: translateY(0); }
+        .hero { background: linear-gradient(to bottom, #ff7e5f, #00000000);margin: auto; }
+        .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    opacity: 0.5; /* Atur transparansi */
+    z-index: -1; /* Menempatkan di belakang konten */
+}
+.transparant-box{background: linear-gradient(to right, #0000008c, #ffffff00); /* Warna hitam dengan opacity 0.5 */
+    border-radius: 10px; /* Pojokan tumpul */
+    padding: 20px;
+max-width: 1100px; display: flex; flex-direction: row;}
+        .produk, .tentang, .pesan, .testimoni, .kontak { background: #f4f1de; margin: 20px 0; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        footer { background: #264653; color: white; text-align: center; padding: 10px; margin-top: 20px; height: 40vh; }
+        button { background: #2a9d8f; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #f4a261; }
+        #portfolio{
+            display: flex;
+            flex-direction: row;
+        }
+        .portfolio-item {
+    text-align: center;
+    width: 150px;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+    
+        .kontak-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 650px;
+    margin: auto;
+}
+.kontak-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    max-width: 600px;
+    white-space: nowrap;
+}
+@media (max-width: 600px) {
+    .kontak-container {
+        max-width: 220px; /* Hanya menampilkan 1 kartu */
+    }}
+.kontak-card {
+    flex: 0 0 auto;
+    width: 200px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    scroll-snap-align: start;
+}
+.kontak-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.scroll-btn {
+    background: #2a9d8f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    position: absolute;
+}
+.scroll-btn.left {
+    left: 0;
+}
+.scroll-btn.right {
+    right: 0;
+}
+.scroll-btn:hover {
+    background: #f4a261;
+}
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header id="hero">Seruni Putih - Jamu Alami</header>
+    <header class="navbar">
+    <div class="navbar">
+        
+        <nav>
+        <a href="#hero"><i class="fas fa-home"></i> Beranda</a>
+        
+        <a href="#produk"><i class="fas fa-cogs"></i> Produk</a>
+        <a href="#pesan"><i class="fas fa-cart-plus"></i> Pesan</a>
+        <a href="#kontak"><i class="fas fa-phone-alt"></i> Kontak</a>
+        <a href="#tentang"><i class="fas fa-info-circle"></i> Lokasi</a>
+        </nav>
+    </div>
+    </header>
+    <section  class="hero" >
+        <div class="transparant-box">
+            <div>
+            <h1 style="
+   
+    display: inline-block; 
+    padding: 10px 20px; 
+    border-radius: 15px; 
+    font-family: Arial, sans-serif; 
+    font-size: 36px; 
+    font-weight: bold; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+">
+    <span style="color: rgb(0, 226, 0);">SERUNI</span>  
+    <span style="color: white;">PUTIH</span>
+</h1>
+        <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur inventore aliquid quasi cumque quo facilis velit saepe laboriosam, ratione deserunt reprehenderit amet nostrum nulla nihil tempora sequi quibusdam ullam sunt!</p>
+    </div>
+    <div><img src="logo.jpg" alt="" style="max-width: 250px; corene"></div>
+    </div>
+    </section>
+    
+    <section id="produk" class="produk">
+        <h2>Produk Unggulan Kami</h2>
+        <section id="portfolio"> <!-- Portfolio Section -->
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/150" alt="Jamu 1" />
+            <h3>Jamu 1</h3>
+            <p>Harga: Rp 50.000</p>
+            <p>Deskripsi: Jamu tradisional yang terbuat dari bahan alami.</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/150" alt="Jamu 2" />
+            <h3>Jamu 2</h3>
+            <p>Harga: Rp 60.000</p>
+            <p>Deskripsi: Jamu yang bermanfaat untuk kesehatan.</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://s2.bukalapak.com/img/2095518581/w-1000/Jamu_Rebusan_godogan_ibu_tari_untuk_pria_dan_wanita.jpg" alt="Jamu 3" />
+            <h3>Jamu 3</h3>
+            <p>Harga: Rp 70.000</p>
+            <p>Deskripsi: Jamu yang menyegarkan dan menyehatkan.</p>
+        </div>
+    </section>
+    </section>
+    <section id="pesan" class="pesan">
+        <h2>Cara Pemesanan</h2>
+        <p>Hubungi kami via WhatsApp untuk pemesanan.</p>
+        <button>Hubungi WhatsApp</button>
+    </section>
+    
+    <section id="kontak" class="kontak">
+        <h2>PENGURUS</h2>
+        <div class="kontak-wrapper">
+            
+            <div class="kontak-container">
+                <div class="kontak-card">
+                    <img src="img/john_doe.jpg" alt="John Doe" class="kontak-img">
+                    <h3>Anggota 1</h3>
+                    <p>Nama: John Doe</p>
+                </div>
+                <div class="kontak-card">
+                    <img src="img/jane_smith.jpg" alt="Jane Smith" class="kontak-img">
+                    <h3>Anggota 2</h3>
+                    <p>Nama: Jane Smith</p>
+                </div>
+                <div class="kontak-card">
+                    <img src="img/alice_brown.jpg" alt="Alice Brown" class="kontak-img">
+                    <h3>Anggota 3</h3>
+                    <p>Nama: Alice Brown</p>
+                </div>
+                <div class="kontak-card">
+                    <img src="img/bob_white.jpg" alt="Bob White" class="kontak-img">
+                    <h3>Anggota 4</h3>
+                    <p>Nama: Bob White</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <section id="tentang" class="tentang">
+        <h2>Lokasi Toko Kami</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.11306170628313!2d110.28535385625959!3d-7.799935570410227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af7dcc193cf91%3A0x946a16093c103530!2sJamu%20seruni%20putih!5e0!3m2!1sen!2sid!4v1740931513061!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <footer style="background-color: #1E4D36; color: white; padding:  50px; display: flex; justify-content: space-between; align-items: flex-start; font-family: Arial, sans-serif;  margin: auto;">
+        <div style="max-width: 50%;">
+            <h3 style="margin-bottom: 10px;">Tentang kami</h3>
+            <p style="line-height: 1.6; font-size: 14px; text-align: left;">
+                Kami adalah tim yang berkomitmen menghadirkan jamu berkualitas berbahan alami untuk mendukung kesehatan dan keseimbangan hidup. Dengan menggabungkan resep tradisional dan inovasi modern, kami menciptakan produk yang bermanfaat bagi tubuh, membantu meningkatkan daya tahan, serta menjaga kesehatan secara alami.
+            </p>
+            <p style="margin-top: 20px; font-size: 12px;">Hak Cipta &copy;2025 seruniputih.</p>
+        </div>
+        <div style="max-width: 40%;">
+            <h3 style="margin-bottom: 10px;">Kontak kami</h3>
+            <p style="display: flex; align-items: center; font-size: 14px;">
+                &#9742; Hubungi kami
+            </p>
+            <p style="display: flex; align-items: center; font-size: 14px;">
+                &#9993; seruniputih25@gmail.com
+            </p>
+            <p style="display: flex; align-items: center; font-size: 14px;">
+                &#128247; jamu.seruniputih
+            </p>
+            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                <a href="#" style="background: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                    &#128247;
+                </a>
+                <a href="#" style="background: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                    &#9742;
+                </a>
+                <a href="#" style="background: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                    &#9993;
+                </a>
+                <a href="#" style="background: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                    &#128247;
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    function revealSections() {
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+                section.classList.add("show");
+            }
+        });
+    }
+
+    function setActiveNav() {
+        let index = sections.length;
+
+        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+        navLinks.forEach((link) => link.classList.remove("active"));
+        navLinks[index].classList.add("active");
+    }
+
+    window.addEventListener("scroll", () => {
+        revealSections();
+        setActiveNav();
+    });
+
+    revealSections();
+    setActiveNav();
+});
+function scrollLeft() {
+    document.querySelector(".kontak-container").scrollBy({ left: -220, behavior: 'smooth' });
+}
+function scrollRight() {
+    document.querySelector(".kontak-container").scrollBy({ left: 220, behavior: 'smooth' });
+}
+    </script>
+</body>
+</html>
